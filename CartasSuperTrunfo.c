@@ -8,7 +8,7 @@
 
 int main() {
     
- //Definindo variáveis para os atributos da carta 1 (npt means = numero de pontos turísticos)
+//Definindo variáveis para os atributos da carta 1 (npt means = numero de pontos turísticos)
     char estado1;
     char codigo_cidade1[30];
     char nome1[30];
