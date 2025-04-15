@@ -12,7 +12,7 @@ int main() {
     char estado1;                               
     char codigo_cidade1[30];
     char nome1[30];
-    int populacao1;                            //definindo variável para input dos atributos da carta 1 pelo jogador
+    unsigned long int populacao1;                            //definindo variável para input dos atributos da carta 1 pelo jogador
     float area1;
     float pib1;
     int npt1;
@@ -26,7 +26,7 @@ int main() {
         char estado2;
         char codigo_cidade2[30];
         char nome2[30];
-        int populacao2;                         //definindo variável para input dos atributos da carta 2 pelo jogador
+        unsigned long int populacao2;                         //definindo variável para input dos atributos da carta 2 pelo jogador
         float area2;
         float pib2;
         int npt2;
@@ -48,7 +48,7 @@ float superPoder2;
     scanf("%s", nome1);                        //input para a variável (nome1)
 
     printf("Qual a população da cidade? \n");  //solicitando o input da populaçao da cidade 1
-    scanf("%d", &populacao1);                  //input para a variável (população1)
+    scanf("%lu", &populacao1);                  //input para a variável (população1)
 
     printf("Qual a área total da cidade? \n"); //solicitando input da área total da cidade
     scanf("%f", &area1);                       //input para a variável (area1)
@@ -64,7 +64,7 @@ float superPoder2;
     PIBpc1 = (float) pib1 / populacao1;
 
 //calculando variável superPoder1
-    superPoder1 = area1 + (float) populacao1 + pib1 + (float) npt1 + densidadepopulacional1 + PIBpc1;    
+    superPoder1 = area1 + (float) populacao1 + pib1 + (float) npt1 + PIBpc1 + (1 / densidadepopulacional1);    
 
 //Recebendo dados sobre a carta 2 do jogador
         printf("Certo, agora vamos para a segunda cidade: \n\n");  //aviso para a etapa da carta 2
@@ -79,7 +79,7 @@ float superPoder2;
         scanf("%s", nome2);                                        //input para a variável (nome2)
 
         printf("Qual é a população da cidade? \n");                //solicitação input para população da cidade 2
-        scanf("%d", &populacao2);                                  //input para a variável (população2)
+        scanf("%lu", &populacao2);                                  //input para a variável (população2)
   
         printf("Qual a área total da cidade? \n");                 //solicitação input para a área total da cidade
         scanf("%f", &area2);                                       //input para a variável (area2)
@@ -95,14 +95,14 @@ float superPoder2;
         PIBpc2 = (float) pib2 / populacao2;
 
         //calculando variável superPoder2
-        superPoder2 = area2 + (float) populacao2 + pib2 + (float) npt2 + densidadepopulacional2 + PIBpc2;
+        superPoder2 = area2 + (float) populacao2 + pib2 + (float) npt2 + PIBpc2 + (1 / densidadepopulacional2);
 
 //Exibição dos dados da carta 1 
     printf("\n\nCarta 1: \n");                                     //imprimindo carta a qual será exibida os dados 1
     printf("Estado: %c\n", estado1);                               //imprimindo valor da variável (estado1)
     printf("Código da carta: %s\n", codigo_cidade1);               //imprimindo valor da variável (codigo_cidade1)
     printf("Nome: %s\n", nome1);                                   //imprimindo valor da variável (nome1)
-    printf("População: %d\n", populacao1);                         //imprimindo valor da variável (populacao1)
+    printf("População: %lu\n", populacao1);                         //imprimindo valor da variável (populacao1)
     printf("Área total em km²: %.2f\n", area1);                    //imprimindo valor da variável (area1)
     printf("PIB: %.2f\n", pib1);                                   //imprimindo valor da variável (pib1)
     printf("Total de pontos turísticos: %d\n", npt1);            //imprimindo valor da variável (npt1)
@@ -115,13 +115,28 @@ float superPoder2;
         printf("Estado: %c\n", estado2);                           //imprimindo valor da variável (estado2)
         printf("Código da carta: %s\n", codigo_cidade2);           //imprimindo valor da variável (codigo_cidade2)
         printf("Nome: %s\n", nome2);                               //imprimindo valor da variável (nome2)
-        printf("População: %d\n", populacao2);                     //imprimindo valor da variável (população2)
+        printf("População: %lu\n", populacao2);                     //imprimindo valor da variável (população2)
         printf("Área total em km²: %.2f\n", area2);                //imprimindo valor da variável (area2)
         printf("PIB: %.2f\n", pib2);                               //imprimindo valor da variável (pib2)
         printf("Total de pontos turísticos: %d\n", npt2);          //imrpimindo valor da variável (npt2) 
         printf("Densidade Populacional: %.2f habitantes por km² \n", densidadepopulacional2); //imprimindo atualização de variável nova
         printf("PIB per Capita: %.2f\n", PIBpc2);     //imprimindo a atualização de variável nova
         printf("** Super Poder da carta 1 **: %.2f\n\n", superPoder2);
+
+//comparando as cartas
+printf("Comparação de Cartas:\n\n");
+printf("População: %d\n", populacao1 > populacao2);
+printf("Área: %d\n", area1 > area2);
+printf("PIB: %d\n", pib1 > pib2);
+printf("Pontos Turísticos: %d\n", npt1 > npt2);
+printf("Densidade Populacional: %d\n", densidadepopulacional1 < densidadepopulacional2);
+printf("PIB per Capita: %d\n", PIBpc1 > pib2);
+printf("Super Poder: %d\n", superPoder1 > superPoder2);
+
+
+
+
+
 
     return 0;
 }
