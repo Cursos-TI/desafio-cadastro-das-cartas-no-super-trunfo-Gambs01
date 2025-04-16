@@ -9,8 +9,8 @@
 int main() {
     
 //Definindo variáveis para os atributos da carta 1 (npt means = numero de pontos turísticos)
-    char estado1;                               
-    char codigo_cidade1[30];
+    char estado1[3];                               
+    char codigo_cidade1[5];
     char nome1[30];
     unsigned long int populacao1;                            //definindo variável para input dos atributos da carta 1 pelo jogador
     float area1;
@@ -23,8 +23,8 @@ int main() {
     float superPoder1; 
  
 //Definindo variáveis para os atributos da carta 2 (npt means = numero de pontos turísticos)    
-        char estado2;
-        char codigo_cidade2[30];
+        char estado2[3];
+        char codigo_cidade2[5];
         char nome2[30];
         unsigned long int populacao2;                         //definindo variável para input dos atributos da carta 2 pelo jogador
         float area2;
@@ -39,7 +39,7 @@ float superPoder2;
 
 //Recebendo os dados sobre a carta 1 do jogador
     printf("Digite o estado da cidade 1: \n"); //solicitando o input do estado
-    scanf("%c", &estado1);                     //input para a variável (estado1)
+    scanf("%s", estado1);                     //input para a variável (estado1)
 
     printf("Digite o código da cidade: \n");   //solicitando o código da cidade
     scanf("%s", codigo_cidade1);               //input para a variável (codigo_cidade1)
@@ -70,7 +70,7 @@ float superPoder2;
         printf("Certo, agora vamos para a segunda cidade: \n\n");  //aviso para a etapa da carta 2
 
         printf("Digite o estado da cidade 2: \n");                 //solicitando input do estado da cidade 2
-        scanf(" %c", &estado2);                                    //input para a variável (estado2)
+        scanf("%s", estado2);                                    //input para a variável (estado2)
 
         printf("Digite o código da cidade: \n");                   //solicitação input do código da cidade 2
         scanf("%s" , codigo_cidade2);                              //input para a variável (codigo_cidade2)
@@ -99,7 +99,7 @@ float superPoder2;
 
 //Exibição dos dados da carta 1 
     printf("\n\nCarta 1: \n");                                     //imprimindo carta a qual será exibida os dados 1
-    printf("Estado: %c\n", estado1);                               //imprimindo valor da variável (estado1)
+    printf("Estado: %s\n", estado1);                               //imprimindo valor da variável (estado1)
     printf("Código da carta: %s\n", codigo_cidade1);               //imprimindo valor da variável (codigo_cidade1)
     printf("Nome: %s\n", nome1);                                   //imprimindo valor da variável (nome1)
     printf("População: %lu\n", populacao1);                         //imprimindo valor da variável (populacao1)
@@ -112,7 +112,7 @@ float superPoder2;
 
 //Exibição dos dados da carta 2
         printf("Carta 2: \n");                                     //imprimindo carta a qual será exibida os dados 2
-        printf("Estado: %c\n", estado2);                           //imprimindo valor da variável (estado2)
+        printf("Estado: %s\n", estado2);                           //imprimindo valor da variável (estado2)
         printf("Código da carta: %s\n", codigo_cidade2);           //imprimindo valor da variável (codigo_cidade2)
         printf("Nome: %s\n", nome2);                               //imprimindo valor da variável (nome2)
         printf("População: %lu\n", populacao2);                     //imprimindo valor da variável (população2)
@@ -124,14 +124,16 @@ float superPoder2;
         printf("** Super Poder da carta 1 **: %.2f\n\n", superPoder2);
 
 //comparando as cartas
-printf("Comparação de Cartas:\n\n");
-printf("População: %d\n", populacao1 > populacao2);
-printf("Área: %d\n", area1 > area2);
-printf("PIB: %d\n", pib1 > pib2);
-printf("Pontos Turísticos: %d\n", npt1 > npt2);
-printf("Densidade Populacional: %d\n", densidadepopulacional1 < densidadepopulacional2);
-printf("PIB per Capita: %d\n", PIBpc1 > pib2);
-printf("Super Poder: %d\n", superPoder1 > superPoder2);
+   printf("** Comparação de cartas ** (Atributo: Super Poder = Soma de todos os atributos)\n\n"); //anúncio de comparação entre as cartas
+   
+   printf("Carta 1 - %s (%s): %.2f\n", nome1, estado1, superPoder1);  //imprimindo atributos a serem comparados da carta 1
+   printf("Carta 2 - %s (%s): %.2f\n\n", nome2, estado2, superPoder2);  //imprimindo atributos a serem comparados da carta 2
+
+   if(superPoder1 > superPoder2){
+       printf("Resultado: Carta 1 (%s) VENCEU!!\n", nome1);
+   }else{
+       printf("Resultado: Carta 2 (%s) VENCEU!!\n", nome2);
+   }
 
 
 
